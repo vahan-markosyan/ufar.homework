@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function recursiveInsertionSort(arr, n = arr.length) {
+    
+    if (n <= 1) {
+        return
+    }
+    recursiveInsertionSort(arr, n - 1)
+
+    let last = arr[n - 1]
+    let i
+    
+    for (i = n - 2; i >= 0 && arr[i] > last; i--) {
+        arr[i + 1] = arr[i]
+    }
+
+    arr[i + 1] = last
+}
+
+let arr = [12, 11, 13, 5, 6];
+recursiveInsertionSort(arr)
+console.log(arr)
+
+
+
+
+
+class Queue {
+    constructor() {
+        this.items = []
+    }
+
+    enque(element) {
+        this.items.push(element)
+    }
+
+    dequeue() {
+        if(this.items.length == 0) {
+            return "Queue is emp-ty"
+        } else {
+            return this.items.shift()
+        }
+    }
+
+    peek() {
+        if(this.items.length == 0) {
+            return "Queue is emp-ty"
+        } else {
+            return this.items[0] 
+        }  
+    }
+
+    isEmpty() {
+        return this.items.length == 0
+    }
+
+    size() {
+        return this.items.length
+    }
+
+    clear() {
+        this.items = []
+    }
+}
+
+let queue = new Queue()
+queue.enque(1)
+queue.enque(2)
+queue.enque(3)
+console.log(queue.dequeue()) 
+console.log(queue.peek())    
+console.log(queue.size())
+console.log(queue.isEmpty())
+queue.clear()
+console.log(queue.isEmpty())
+
+    </script>
+</body>
+</html>
